@@ -1,0 +1,141 @@
+/**
+ * Created by T on 5/29/2015.
+ */
+import java.lang.*;
+import java.util.Random;
+
+
+public class SamsPlroblem {
+
+        public static void main (String[] args) throws java.lang.Exception//my friend had a picture posted to his facebook wall that contained a math plroblem.  It was long and irritating so I wrote this to solve it.
+        {
+            double [] holder= new double [9];//The requirement was to get a certain number (66) through a series of transmutations with random numbers scattered throughout
+            holder [0]=1;//using the numbers 1-9 inclusive
+            holder [1]=2;//this stores the 1-9
+            holder [2]=3;
+            holder [3]=4;
+            holder [4]=5;
+            holder [5]=6;
+            holder [6]=7;
+            holder [7]=8;
+            holder [8]=9;
+            boolean notComplete=true;
+            double ans=0;
+            int escape=0;
+            Random rand = new Random();
+
+            while (notComplete)//I decided to make the computer randomly guess to solve, which lead me to use a while loop and several 4 loops
+            {
+                double [] held=new double[9];//holder holds the numbers, held holds the random new arrangement
+                for (int x=0; x<=8;x++)
+                {
+                    held[x]=0;
+
+                }
+
+                for(int y=0;y<9;y++)//assigns the values in holder randomly to held.  if it is already taken, moves to the next one in the list
+                {
+                    int rando = rand.nextInt(8)+1;
+                    if(held[rando]!=0)
+                    {
+                        for(int z=rando; z<=9; z++)
+                        {
+
+                            if(z==9)
+                            {
+                                z=0;
+                            }
+                            if(held[z]==0)
+                            {
+                                held[z]=holder[y];
+                                z=100;
+                            }
+                            escape++;
+                            if (escape==10)//after 10 iterations, automatically exits.  I had an issue where it would get caught in an infinite loop
+                            {
+                                z=100;
+                                escape=0;
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        held[rando]=holder[y];
+                    }
+
+
+
+                }
+
+
+                int paranoia1=0;
+                for (int able=1; able<10; able++)//but there is a bug in the previous section of code.  it allows multiples of the same one, somehow, and 0s to pass through
+                {
+                    boolean isThere=false;//this checks if the number is present
+                    int tooMuch=0;//this checks if there is more than one of that number
+                    int bravo=0;
+                    for (int charlie=0; charlie<9; charlie++)
+                    {
+                        if(held[charlie]==able)//this (and 105)  was designed to forcably exit and crash this loop, restarting the process, it failed
+                        {
+                            isThere=true;
+                            tooMuch++;
+                        }
+                        if(held[charlie]==0)
+                        {
+                            bravo=charlie;
+                        }
+                        if(tooMuch>1)
+                        {
+                            able=100;
+                            charlie=100;
+                            held[0]=3200;
+                            paranoia1=3;
+
+                        }
+                        if(!isThere)
+                        {
+                            held[bravo]=able;
+                        }
+
+                    }
+                    if(paranoia1!=3&&able==9)
+                    {
+                        able=0;
+                        paranoia1++;
+                    }
+
+                    for (int charlie=0; charlie<9; charlie++)//Because the previous section did not cover all situations (not sure why), this one forcibly fails the comparison
+                    {
+                        for(int delta=0; delta<9;delta++)
+                        {
+                            if(held[charlie]==held[delta]&&charlie!=delta)
+                            {
+                                charlie=10;
+                                delta=10;
+                                held[0]=3200;
+
+                            }
+
+                        }
+                    }
+
+
+
+                }
+                ans=(((((((((((held[0]+13)*held[1])/held[2])+held[3])+12)*held[4])-held[5])-11)+held[6])*held[7])/held[8])-10;//Without the () it solves for order of operations, which didn't appear to follow the guidelines
+                //System.out.println("Atmpt "+held[0]+" "+held[1]+" "+held[2]+" "+held[3]+" "+held[4]+" "+held[5]+" "+held[6]+" "+held[7]+" "+held[8]+ " "); debugging information
+                if((ans-66)*(ans-66)<.001)//if ans is close enough to the final result, it passes and writes the answer
+                {
+                    notComplete=false;
+                    System.out.println("Answer "+ held[0]+" "+held[1]+" "+held[2]+" "+held[3]+" "+held[4]+" "+held[5]+" "+held[6]+" "+held[7]+" "+held[8]);
+                }
+
+
+                //System.out.println(ans); more debugging 
+            }
+
+        }
+    }
+

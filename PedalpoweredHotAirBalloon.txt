@@ -1,0 +1,54 @@
+pedel powered hot air balloon
+P=pRT
+
+P=absolute pressure in Pa
+p=density of gas in kg/m^3
+R=gas constant in Joules/(kg*k)
+T=absolute tempature in Kelvins
+
+Normal atmospheric pressure = 101,300 Pa
+Gas constant 287 Joules/kg*K
+
+air inside ~100 C or 373K
+
+101,300=  p*287*373
+
+density of heated air = .946 kg/m^3
+
+versus ~1.2kg/m^3 for cool air
+
+each m^3 displaces .254 kg
+
+For 90 kg, you'd need 355 m^3 of envalope
+
+But this is only part of the weight of a hot air balloon
+
+Generally most hot air balloons have 20 gallons of liquid propane
+This weighs 4.2 pounds per gallon
+84 lbs = 38.1 kg
+
+Not sure what the standard size is for Australian propane canisters, but US uses 20 lbs
+They weigh ~37 lbs when full, and hold 4.7 gallons
+4 of them hold 18.8 gallons and weigh 148 lbs or 67 kg.
+
+Burners weigh 22.7 kg, according to wikipedia https://en.wikipedia.org/wiki/Hot_air_balloon#Combined_mass
+You'll probably want a commercial version for safety's sake
+
+I'm assuming that you're using a converted bike for the petal power.
+Normal bikes weigh ~17.5 lbs, ~8 kilos, but I'll bump it up to 12 kilos for the addition of a fan, safety cage, and burner support.
+
+Thus, the weight of the
+person (90 kg)
+fuel and tanks (38.1 kg)
+burners (22.7 kg)
+and bike/basket (12 kg)
+equals 162.8 kg or 640 m^3 of displacement
+
+Here's the annoying math, as increasing the size of the balloon's balloon increases the mass of the overall system, which needs a bigger balloon
+1 square yard equals about 1.9 oz or .8361 meters^2 per 1.9 oz or .8361 meters^2 per .054 kg
+1  meter ^2 = .064 kg
+Using discrete values, because I refuse to actually solve for this equation when excel can do it for me
+A perfectly spherical balloon of 5.7 meters in radius would be able to lift 197.04 kg, would add 27.05 kg, and would weight in total 188.9 kg.
+So you'd have about 9 kg of weight for more supports for the burners and plumbing for the fuel.
+
+I have no idea how much it would cost, and at the moment I am not inclined to find out.
